@@ -84,12 +84,12 @@ i = 0
 """ Connect to VectorNav VN-100 using vn.core library """
 
 vs = VnSensor()
-vs.connect("COM3",115200)
+vs.connect("/dev/ttyUSB1",115200)
 
 """ Connect to Haydon-Kerk Motors and Motor Controllers """
 import serial
-outP = serial.Serial(port="COM4", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Pitch Motor
-out = serial.Serial(port="COM5", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Roll Motor
+outP = serial.Serial(port="/dev/ttyUSB0", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Pitch Motor
+out = serial.Serial(port="/dev/ttyUSB2", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Roll Motor
 
 ## Check if connected (DEBUG ONLY)
 # outP.isOpen()
