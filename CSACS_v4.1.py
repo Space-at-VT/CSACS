@@ -257,9 +257,12 @@ def save_data():
 
 # Only do this if the Stop button has not been clicked
 def dynamic_balance():
-    pry = vs.readYawPitchRoll()       
+    pry = vs.read_yaw_pitch_roll()       
     pitch = round(pry.y,8)
     roll = round(pry.z,8)
+
+    print(pitch)
+    print(roll)
 
     if pitch >= 10:
         movePmotor = 'I500000,25600,9600,16000,320000,800000,490,122,490,490,50,8\r'
@@ -633,9 +636,14 @@ class StartPage(Frame):
     animation function begins and updates every second (1000 ms).  The app.mainloop command
     tells Python to display the window."""
 
-app = CSACS()
-ani = animation.FuncAnimation(fig, animate, interval=500)
-app.mainloop()
+#app = CSACS()
+#ani = animation.FuncAnimation(fig, animate, interval=500)
+#app.mainloop()
+
+while True:
+
+	dynamic_balance()
+
 
 
 
