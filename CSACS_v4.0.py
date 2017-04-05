@@ -1,7 +1,7 @@
 #############################################################################
 # Program: CSACS_v4.0.py
 # Author: Larry Hensley (Based on code written by Nicholas R. Tibbetts and Mark R. Mercier)
-# Email: markrm33@vt.edu
+# Email: lmwh@vt.edu
 # Required Python Version: 3.4 or greater
 # Version: 4.0
 # Date: 30MAR17
