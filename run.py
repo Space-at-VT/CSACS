@@ -1,9 +1,9 @@
 
 
-
-from vnpy import *           #Core Library for VN-100 interfacing
+from vnpy import *           # Core Library for VN-100 interfacing
 import sys
-import os, time
+import os
+import time
 from datetime import datetime
 
 """ Set Up Empty Arrays for Program """
@@ -21,14 +21,16 @@ i = 0
 """ Connect to VectorNav VN-100 using vn.core library """
 
 vs = VnSensor()
-vs.connect("/dev/ttyUSB1",115200)
+vs.connect("/dev/ttyUSB1", 115200)
 
 """ Connect to Haydon-Kerk Motors and Motor Controllers """
 import serial
-outP = serial.Serial(port="/dev/ttyUSB0", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Pitch Motor
-out = serial.Serial(port="/dev/ttyUSB2", baudrate=57600, bytesize=8, parity='N', stopbits=1, timeout=2 ) # Roll Motor
+outP = serial.Serial(port="/dev/ttyUSB0", baudrate=57600, bytesize=8,
+                     parity='N', stopbits=1, timeout=2)  # Pitch Motor
+out = serial.Serial(port="/dev/ttyUSB2", baudrate=57600, bytesize=8,
+                    parity='N', stopbits=1, timeout=2)  # Roll Motor
 
-## Check if connected (DEBUG ONLY)
+# Check if connected (DEBUG ONLY)
 # outP.isOpen()
 # out.isOpen()
 
@@ -131,9 +133,9 @@ def dynamic_balance():
             out.write(bytes(moveRmotor, 'utf-8'))
             time.sleep(5)
 
+
 while True:
     try:
         dynamic_balance()
     except KeyboardInterrupt:
         sys.exit(-1)
-
